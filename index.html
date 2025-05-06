@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liliceae - Cửa hàng hoa tươi</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #c8e0f4;
+            /* Xanh dương nhạt */
+            --secondary-color: #a0c8e0;
+            --accent-color: #7fb3d5;
+            --text-color: #2c3e50;
+            --light-color: #ecf0f1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            background-color: #f8fdff;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(200, 224, 244, 0.4), rgba(200, 224, 244, 0.2)), url('./image/banner1.jpg') center/cover no-repeat;
+            padding: 100px 0;
+            color: var(--text-color);
+        }
+
+        .hero-section h1,
+        .hero-section p {
+            color: black;
+            font-weight: bold;
+        }
+
+        .hero-section .btn {
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-box {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            transition: transform 0.3s;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .product-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card .card-img-top {
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .card-footer {
+            background-color: white;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 40px 0;
+        }
+
+        .footer h5 {
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .social-icons a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+
+        .badge-sale {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+
+        .category-badge {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .testimonial {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .newsletter-section {
+            background-color: var(--secondary-color);
+            padding: 40px 0;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-flower"></i> Liliceae
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="product.html">Sản Phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Về chúng tôi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Liên hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tableproduct.html">Bảng Sản Phẩm</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <div class="input-group me-3">
+                        <input type="text" class="form-control" placeholder="Tìm kiếm..." aria-label="Search">
+                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="me-3">
+                        <a href="#" class="text-dark position-relative cart-icon">
+                            <i class="fas fa-shopping-cart fs-5"></i>
+                            <span class="cart-count">3</span>
+                        </a>
+                    </div>
+                    <a href="login.html" class="btn btn-sm btn-outline-dark me-2">Đăng nhập</a>
+                    <a href="register.html" class="btn btn-sm btn-primary">Đăng ký</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-6">Hoa Tươi Mỗi Ngày</h1>
+            <p class="lead mb-5">Mang vẻ đẹp thiên nhiên vào không gian sống của bạn với những bó hoa tươi đầy sắc màu
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#products" class="btn btn-lg btn-primary">Mua ngay</a>
+                <a href="#" class="btn btn-lg btn-outline-dark">Tìm hiểu thêm</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-box text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h5>Giao hàng nhanh chóng</h5>
+                        <p class="mb-0">Giao hàng miễn phí trong ngày cho mọi đơn hàng trong khu vực nội thành</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h5>Hoa tươi 100%</h5>
+                        <p class="mb-0">Cam kết hoa tươi được cắt cành trong ngày từ các nhà vườn uy tín</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h5>Thiết kế độc đáo</h5>
+                        <p class="mb-0">Đội ngũ florist chuyên nghiệp với nhiều năm kinh nghiệm</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="py-5 bg-light" id="products">
+        <div class="container">
+            <h2 class="text-center mb-5">Sản phẩm nổi bật</h2>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-card card h-100">
+                        <span class="badge-sale">-15%</span>
+                        <img src="./image/h1.jpg" class="card-img-top" alt="Hoa hồng">
+                        <div class="card-body">
+                            <span class="badge category-badge mb-2">Hoa sinh nhật</span>
+                            <h5 class="card-title">Bó hoa hồng pastel</h5>
+                            <p class="card-text">Bó hoa hồng nhẹ nhàng với tông màu pastel nhẹ nhàng, thích hợp cho sinh
+                                nhật.</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="text-muted text-decoration-line-through">550,000₫</span>
+                                <span class="price ms-2">450,000₫</span>
+                            </div>
+                            <button class="btn btn-sm btn-primary">
+                                <i class="fas fa-cart-plus"></i> Thêm
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-card card h-100">
+                        <img src="./image/h3.jpg" class="card-img-top" alt="Hoa tulip">
+                        <div class="card-body">
+                            <span class="badge category-badge mb-2">Hoa chúc mừng</span>
+                            <h5 class="card-title">Hộp hoa tulip</h5>
+                            <p class="card-text">Hộp hoa tulip tươi nhiều màu sắc, thích hợp làm quà tặng hoặc trang
+                                trí.</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <span class="price">350,000₫</span>
+                            <button class="btn btn-sm btn-primary">
+                                <i class="fas fa-cart-plus"></i> Thêm
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-card card h-100">
+                        <img src="./image/h4.jpg" class="card-img-top" alt="Hoa cưới">
+                        <div class="card-body">
+                            <span class="badge category-badge mb-2">Hoa cưới</span>
+                            <h5 class="card-title">Bó hoa cưới sang trọng</h5>
+                            <p class="card-text">Bó hoa cưới tone trắng tinh khôi kết hợp hoa hồng và lan tường.</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <span class="price">250,000₫</span>
+                            <button class="btn btn-sm btn-primary">
+                                <i class="fas fa-cart-plus"></i> Thêm
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-card card h-100">
+                        <span class="badge-sale">Mới</span>
+                        <img src="./image/h5.jpg" class="card-img-top" alt="Hoa lan">
+                        <div class="card-body">
+                            <span class="badge category-badge mb-2">Hoa khai trương</span>
+                            <h5 class="card-title">Giỏ hoa lan hồ điệp</h5>
+                            <p class="card-text">Giỏ hoa lan hồ điệp sang trọng, thích hợp cho các dịp khai trương, chúc
+                                mừng.</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <span class="price">200,000₫</span>
+                            <button class="btn btn-sm btn-primary">
+                                <i class="fas fa-cart-plus"></i> Thêm
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Danh mục sản phẩm</h2>
+
+            <div class="row g-4">
+                <div class="col-md-4 col-6">
+                    <div class="card h-100">
+                        <img src="./image/h13.jpg" class="card-img-top" alt="Hoa sinh nhật">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Hoa sinh nhật</h5>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Xem ngay</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-6">
+                    <div class="card h-100">
+                        <img src="./image/h15.jpg" class="card-img-top" alt="Hoa cưới">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Hoa cưới</h5>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Xem ngay</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-6">
+                    <div class="card h-100">
+                        <img src="./image/h11.jpg" class="card-img-top" alt="Hoa khai trương">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Hoa tặng lễ</h5>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Xem ngay</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Khách hàng nói gì về chúng tôi</h2>
+
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="./image/ava.jpg" class="testimonial-img me-3" alt="Customer">
+                            <div>
+                                <h6 class="mb-0">Nguyễn Minh Anh</h6>
+                                <div class="text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mb-0">"Hoa luôn tươi và đẹp, giao hàng đúng giờ. Sẽ tiếp tục ủng hộ shop trong tương
+                            lai!"</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="./image/ava.jpg" class="testimonial-img me-3" alt="Customer">
+                            <div>
+                                <h6 class="mb-0">Trần Thanh Hà</h6>
+                                <div class="text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mb-0">"Đặt hoa cho bạn gái vào dịp sinh nhật, cô ấy rất thích. Cảm ơn shop đã giúp tôi
+                            gây bất ngờ!"</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="./image/ava.jpg" class="testimonial-img me-3" alt="Customer">
+                            <div>
+                                <h6 class="mb-0">Phạm Thị Mai</h6>
+                                <div class="text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mb-0">"Dịch vụ chăm sóc khách hàng tuyệt vời. Hoa rất đẹp và được đóng gói cẩn thận,
+                            giữ được độ tươi lâu."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h3 class="mb-4">Đăng ký nhận thông tin</h3>
+                    <p class="mb-4">Nhận thông tin về các chương trình khuyến mãi và sản phẩm mới từ chúng tôi</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Email của bạn" aria-label="Email">
+                        <button class="btn btn-dark" type="button">Đăng ký</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="mb-4">Liliceae</h5>
+                    <p>Mang vẻ đẹp của thiên nhiên đến ngôi nhà của bạn với những bó hoa tươi đầy sắc màu.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="mb-4">Liên kết nhanh</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Trang chủ</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Sản phẩm</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Về chúng tôi</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Blog</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Liên hệ</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="mb-4">Dịch vụ</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Giao hàng</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Đổi trả</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Chính sách bảo mật</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">Điều khoản sử dụng</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4">Liên hệ</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Đường Hoa, Quận 1, TP.HCM</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 0987 654 321</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> contact@flowerparadise.com</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i> 08:00 - 20:00, Thứ 2 - Chủ nhật</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 Liliceae. Tất cả quyền được bảo lưu.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <img src="/api/placeholder/200/30" alt="Payment Methods" class="img-fluid"
+                        style="max-height: 30px;">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
